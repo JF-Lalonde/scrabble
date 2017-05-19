@@ -1,7 +1,11 @@
 class Scrabble
 
   def score(word)
-    self.point_values[word.upcase]
+    if self.point_values[word.upcase].nil?
+      score = 0
+    else
+      self.point_values[word.upcase]
+    end
   end
 
   def point_values
