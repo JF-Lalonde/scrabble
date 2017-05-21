@@ -20,5 +20,14 @@ class ScrabbleTest < Minitest::Test
   end
 
   def test_that_nil_returns_score_of_zero
+    assert_equal 0, Scrabble.new.score(nil)
+  end
+
+  def test_that_words_are_scored
+    assert_equal 4, Scrabble.new.score("test")
+  end
+
+  def test_that_words_are_insensitive_to_case
+    assert_equal 4, Scrabble.new.score("TeSt")
   end
 end

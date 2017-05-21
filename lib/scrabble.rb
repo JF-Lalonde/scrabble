@@ -1,12 +1,17 @@
 class Scrabble
 
   def score(word)
-    if self.point_values[word.upcase].nil?
+    if word.nil? || word.length == 0
       score = 0
     else
-      self.point_values[word.upcase]
+      letters = word.split("")
+      total = letters.map do |letter|
+         point_values[letter.upcase]
+      end
+      score = total.inject{|sum, num| sum + num}
     end
   end
+
 
   def point_values
     {
